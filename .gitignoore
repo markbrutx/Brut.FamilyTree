@@ -1,0 +1,33 @@
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.csproj.user
+
+# Build
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+
+# NuGet
+packages/
+*.nupkg
+
+# Bannerlord specific
+*.pdb
+*.dll
+
+# Claude AI / Development
+.wb/
+.claude/
+CLAUDE.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
