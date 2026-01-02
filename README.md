@@ -2,13 +2,6 @@
 
 A Mount & Blade II: Bannerlord mod that enhances family relationship display in the Clan Screen.
 
-## Screenshots
-
-### Clan Screen
-![Clan Screen](docs/images/clan_screen.png)
-
-### Family Tree
-![Family Tree](docs/images/family_tree.png)
 
 ## Features
 
