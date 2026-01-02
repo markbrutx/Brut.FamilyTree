@@ -43,21 +43,6 @@ The enhanced relation display is **only active in the Clan Screen** (opened with
 2. Extract to `Mount & Blade II Bannerlord/Modules/Brut.FamilyTree`
 3. Enable "Brut.FamilyTree" in the launcher
 
-## Changelog
-
-### v1.0.0
-- Fixed nephew/niece relation display (now shows parents info)
-- Fixed sister-in-law/brother-in-law relation display
-- Limited enhanced relations to Clan Screen only (no more interference with Encyclopedia)
-- Added Russian localization for new relation types
-
-### v0.2.0
-- Added Family Tree popup visualization
-- Localized UI text
-
-### v0.1.0
-- Initial release with Family Tree button
-
 ## Technical Details
 
 The mod uses Harmony to patch `ConversationHelper.GetHeroRelationToHeroTextShort`. The patch:
