@@ -1,59 +1,71 @@
 # Brut.FamilyTree
 
-**Детальное генеалогическое дерево для Mount & Blade II: Bannerlord**
+A Mount & Blade II: Bannerlord mod that enhances family relationship display in the Clan Screen.
 
-## О моде
+## Screenshots
 
-Brut.FamilyTree улучшает отображение семейных связей в игре, делая родословную вашего клана и других кланов понятной и наглядной.
+### Clan Screen
+![Clan Screen](docs/images/clan_screen.png)
 
-### Возможности
+### Family Tree
+![Family Tree](docs/images/family_tree.png)
 
-#### 🏠 Улучшенная вкладка «Клан»
-- При клике на члена семьи показывает **полную цепочку родства**
-- Вместо простого «Внук» отображает: **«Сын Биба и Боба, Внук Блинк»**
-- Ясное понимание происхождения каждого члена клана
+## Features
 
-#### 📖 Генеалогическое дерево в Энциклопедии
-- Новая кнопка **«Генеалогическое дерево»** на странице любого клана
-- Визуальное отображение всех родственных связей
-- Разделение на **родственные** и **не родственные** (присоединившиеся) ветви
-- Удобная навигация по древу семьи
+### Enhanced Relation Display
+Shows detailed family lineage instead of simple labels in the Clan Screen (L key):
 
-## Требования
+| Before | After |
+|--------|-------|
+| Nephew | Son of Nathanos and Megenhelda, nephew of Brut |
+| Niece | Daughter of Nathanos and Megenhelda, niece of Brut |
+| Sister-in-law | Wife of Nathanos, sister-in-law of Brut |
+| Brother-in-law | Husband of Liena, brother-in-law of Brut |
 
-- Mount & Blade II: Bannerlord (версия 1.2.x+)
-- [Harmony](https://www.nexusmods.com/mountandblade2bannerlord/mods/2006)
-- [ButterLib](https://www.nexusmods.com/mountandblade2bannerlord/mods/2018)
-- [UIExtenderEx](https://www.nexusmods.com/mountandblade2bannerlord/mods/2102)
+### Family Tree Popup
+Visual family tree display accessible from the Clan Screen.
 
-## Установка
+### Localization
+Full support for English and Russian languages.
 
-1. Скачайте последнюю версию мода
-2. Распакуйте в папку `Modules` игры
-3. Активируйте мод в лаунчере
+## Scope
 
-## Порядок загрузки
+The enhanced relation display is **only active in the Clan Screen** (opened with L key). Other game screens like Encyclopedia, dialogs, and tooltips use the original game behavior.
 
-```
-Harmony
-ButterLib
-UIExtenderEx
-Brut.FamilyTree
-```
+## Requirements
 
-## Совместимость
+- Mount & Blade II: Bannerlord (tested on v1.2.x)
+- [Bannerlord.Harmony](https://www.nexusmods.com/mountandblade2bannerlord/mods/2006) v2.3.0+
 
-- ✅ Совместим с большинством модов
-- ⚠️ Возможны конфликты с модами, изменяющими UI клана/энциклопедии
+## Installation
 
-## Лицензия
+1. Download the mod
+2. Extract to `Mount & Blade II Bannerlord/Modules/Brut.FamilyTree`
+3. Enable "Brut.FamilyTree" in the launcher
 
-MIT License
+## Changelog
 
-## Автор
+### v1.0.0
+- Fixed nephew/niece relation display (now shows parents info)
+- Fixed sister-in-law/brother-in-law relation display
+- Limited enhanced relations to Clan Screen only (no more interference with Encyclopedia)
+- Added Russian localization for new relation types
 
-**Brut.**
+### v0.2.0
+- Added Family Tree popup visualization
+- Localized UI text
 
----
+### v0.1.0
+- Initial release with Family Tree button
 
-*Сделано с ❤️ для сообщества Bannerlord*
+## Technical Details
+
+The mod uses Harmony to patch `ConversationHelper.GetHeroRelationToHeroTextShort`. The patch:
+- Only activates when `GauntletClanScreen` is the top screen
+- Disables when Encyclopedia is open (even over Clan Screen)
+- Uses BFS to find relation paths between heroes
+- Formats output to work with game's automatic "of {Name}" suffix
+
+## License
+
+MIT

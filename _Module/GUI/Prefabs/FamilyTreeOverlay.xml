@@ -1,0 +1,32 @@
+<Prefab>
+  <Window>
+    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true">
+      <Children>
+        <!-- Family Tree Button -->
+        <ButtonWidget
+          Id="FamilyTreeButton"
+          DoNotPassEventsToChildren="true"
+          WidthSizePolicy="Fixed"
+          HeightSizePolicy="Fixed"
+          SuggestedWidth="150"
+          SuggestedHeight="45"
+          HorizontalAlignment="Right"
+          VerticalAlignment="Top"
+          MarginRight="20"
+          MarginTop="210"
+          Brush="ButtonBrush1"
+          Command.Click="ExecuteOpenFamilyTree">
+          <Children>
+            <TextWidget
+              WidthSizePolicy="StretchToParent"
+              HeightSizePolicy="StretchToParent"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Brush="Clan.TabControl.Text"
+              Text="@FamilyTreeText" />
+          </Children>
+        </ButtonWidget>
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

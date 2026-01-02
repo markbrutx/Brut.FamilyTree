@@ -1,0 +1,121 @@
+<Prefab>
+  <Window>
+    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+      <Children>
+        <!-- Dark overlay background -->
+        <Widget
+          WidthSizePolicy="StretchToParent"
+          HeightSizePolicy="StretchToParent"
+          Sprite="BlankWhiteSquare_9"
+          Color="#000000DD"
+          IsEnabled="false" />
+
+        <!-- Popup content panel - almost fullscreen -->
+        <BrushWidget
+          WidthSizePolicy="StretchToParent"
+          HeightSizePolicy="StretchToParent"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          MarginLeft="50"
+          MarginRight="50"
+          MarginTop="50"
+          MarginBottom="50"
+          Brush="Encyclopedia.Frame">
+          <Children>
+            <!-- Title Banner -->
+            <BrushWidget
+              WidthSizePolicy="Fixed"
+              HeightSizePolicy="Fixed"
+              SuggestedHeight="150"
+              SuggestedWidth="800"
+              PositionYOffset="-5"
+              HorizontalAlignment="Center"
+              Sprite="StdAssets\tabbar_popup"
+              DoNotAcceptEvents="true">
+              <Children>
+                <RichTextWidget
+                  WidthSizePolicy="StretchToParent"
+                  HeightSizePolicy="CoverChildren"
+                  VerticalAlignment="Center"
+                  PositionYOffset="-27"
+                  Brush="Recruitment.Popup.Title.Text"
+                  Text="@PopupTitleText"
+                  Brush.FontSize="30" />
+              </Children>
+            </BrushWidget>
+
+            <!-- Family Tree Widget -->
+            <Widget Id="FamilyTreeWidget" HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" MarginTop="160" MarginBottom="100">
+              <Children>
+                <EncyclopediaTroopScrollablePanel Id="TreeScrollablePanel" HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" InnerPanel="TreeRect\InnerPanel" ClipRect="TreeRect" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalScrollbar="..\TreeHorizontalScrollbar" VerticalScrollbar="..\TreeVerticalScrollbar" PanWithMouseEnabled="true" AutoHideScrollBars="true" MarginTop="10" MarginBottom="20" MarginLeft="20" MarginRight="20">
+                  <Children>
+
+                    <Widget Id="TreeRect" HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" HorizontalAlignment="Center" DoNotAcceptEvents="true" ClipContents="true" MarginLeft="0" MarginRight="0" MarginBottom="0">
+                      <Children>
+
+                        <Widget Id="InnerPanel" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Center">
+                          <Children>
+
+                            <Widget DataSource="{FamilyTree}" HorizontalAlignment="Center" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginTop="10" MarginBottom="20">
+                              <Children>
+
+                                <FamilyTreeNodeItem Id="RootNode" HorizontalAlignment="Center" DoNotAcceptEvents="true"/>
+
+                              </Children>
+                            </Widget>
+
+                          </Children>
+                        </Widget>
+
+                      </Children>
+                    </Widget>
+
+                  </Children>
+                </EncyclopediaTroopScrollablePanel>
+
+                <ScrollbarWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="Fixed" Id="TreeVerticalScrollbar" SuggestedWidth="30" MinValue="0" MaxValue="100" MarginRight="10" MarginBottom="20" MarginTop="0" AlignmentAxis="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Handle="ScrollbarHandle" UpdateChildrenStates="true">
+                  <Children>
+                    <Widget Id="ScrollbarBed" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="4" HorizontalAlignment="Center" Sprite="SPGeneral\SPRecruitment\slider_thin_bed_vertical"/>
+                    <ImageWidget Id="ScrollbarHandle" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" MinHeight="153" SuggestedWidth="30" SuggestedHeight="150" HorizontalAlignment="Center" Brush="Encyclopedia.Scroll.Handle.Vertical"/>
+                  </Children>
+                </ScrollbarWidget>
+
+                <ScrollbarWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" Id="TreeHorizontalScrollbar" SuggestedHeight="8" MinValue="0" MaxValue="100" MarginLeft="20" MarginRight="55" MarginBottom="5" AlignmentAxis="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Handle="ScrollbarHandle" UpdateChildrenStates="true">
+                  <Children>
+                    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" VerticalAlignment="Center" Sprite="SPGeneral\SPRecruitment\slider_thin_bed_horizontal"/>
+                    <ImageWidget Id="ScrollbarHandle" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" MinWidth="153" SuggestedHeight="30" SuggestedWidth="150" VerticalAlignment="Center" Brush="Encyclopedia.Scroll.Handle.Horizontal"/>
+                  </Children>
+                </ScrollbarWidget>
+
+              </Children>
+            </Widget>
+
+            <!-- Close button - centered at bottom -->
+            <ButtonWidget
+              DoNotPassEventsToChildren="true"
+              WidthSizePolicy="Fixed"
+              HeightSizePolicy="Fixed"
+              SuggestedWidth="150"
+              SuggestedHeight="45"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Bottom"
+              MarginBottom="40"
+              Brush="ButtonBrush1"
+              Command.Click="ExecuteCloseFamilyTree">
+              <Children>
+                <TextWidget
+                  WidthSizePolicy="StretchToParent"
+                  HeightSizePolicy="StretchToParent"
+                  Brush="Popup.Description.Text"
+                  Brush.TextHorizontalAlignment="Center"
+                  Brush.TextVerticalAlignment="Center"
+                  Text="@CloseButtonText" />
+              </Children>
+            </ButtonWidget>
+
+          </Children>
+        </BrushWidget>
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>
